@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f71958d02a3d4f4e877304c3dd1c267, type: 3}
   m_Name: NewWeaponConfig
   m_EditorClassIdentifier: 
-  damage: 0
-  shoot_frequncy: 0
-  dominant_range: 0
-  precision: 0
-  weith: 0
-  Volume: 0
-  reload_time: 0
+  damage: 10
+  shoot_frequncy: 1
+  dominant_range: 50
+  precision: 10
+  weith: 10
+  Volume: 30
+  reload_time: 3
   weapon_type: 0
