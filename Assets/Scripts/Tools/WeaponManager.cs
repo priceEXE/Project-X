@@ -8,6 +8,10 @@ public class WeaponManager : MonoBehaviour
     //暂时用武器编号代替武器实例缓存
     private int Weapon_code;
 
+    public GameObject weapon_for_test;//测试武器的接口
+
+    public WeaponConfig weaponConfig;//测试武器的配置文件
+
     public static WeaponManager Instance
     {
         get
@@ -40,13 +44,27 @@ public class WeaponManager : MonoBehaviour
         {
             Debug.Log("Weapon code illegal!Please find a legal code");
         }
+        ///测试代码
+        weapon_for_test.GetComponent<Gun>().Initialize(weaponConfig);
+
+        ///测试代码
     }
 
     //射击函数
     public void Shoot()
     {
-        Vector2 currentMousePos = MousePositionManager.Instance.MouseWorldPosition;
-        Debug.Log("SHoot Derection:" + currentMousePos.normalized);
+        Debug.Log("开火！");
+        weapon_for_test.GetComponent<Gun>().Shoot();
+    }
+
+    public void Reload()
+    {
+        weapon_for_test.GetComponent<Gun>().Reload();
+    }
+
+    public void ChangeSafty()
+    {
+        weapon_for_test.GetComponent<Gun>().ChangeSafty();
     }
 
 

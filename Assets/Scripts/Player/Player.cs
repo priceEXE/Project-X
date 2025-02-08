@@ -36,7 +36,6 @@ public class Player : MonoBehaviour
         float Horizontal = Input.GetAxis("Horizontal");
         float Vertical = Input.GetAxis("Vertical");
         Vector2 speed_direct = new Vector2(Horizontal,Vertical).normalized;
-        Debug.Log(speed_direct);
         rigidbody2D.velocity = player_walk_speed * speed_direct;
 
     }
@@ -69,7 +68,7 @@ public class Player : MonoBehaviour
 
     private void DetectInput()
     {
-        if(Input.GetKey(KeyCode.LeftShift))
+        if(Input.GetKey(KeyCode.LeftShift))//按住Shift奔跑
         {
             isRuning = true;
         }
@@ -77,13 +76,24 @@ public class Player : MonoBehaviour
         {
             isRuning = false;
         }
-        if(Input.GetMouseButton(0))
+        if(Input.GetMouseButton(0))//鼠标左键开火
         {
+            Debug.Log("开火！");
             isShooting  = true;
         }
         else
         {
             isShooting  = false;
+        }
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            WeaponManager.Instance.Reload();//R键更换弹匣
+        }
+
+        if(Input.GetKeyDown(KeyCode.G))
+        {
+            WeaponManager.Instance.ChangeSafty();//G键更换快慢机
         }
 
         //如果奔跑时射击，则优先射击，取消奔跑
