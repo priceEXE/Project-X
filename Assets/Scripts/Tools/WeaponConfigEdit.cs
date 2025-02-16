@@ -21,11 +21,4 @@ public class WeaponConfig : ScriptableObject
 
 }
 
-//保险装置的列举
-public enum Safty
-{
-    SAFE,//保险关
-    SEMI,//半自动
-    AUTO,//全自动
-}
 

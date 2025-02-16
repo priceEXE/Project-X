@@ -1,16 +1,15 @@
 using UnityEngine;
+using System.Collections;
+using YooAsset;
 
 public class WeaponManager : MonoBehaviour
 {
     //单例实例
     private static WeaponManager _instance;
 
-    //暂时用武器编号代替武器实例缓存
-    private int Weapon_code;
-
-    public GameObject weapon_for_test;//测试武器的接口
-
-    public WeaponConfig weaponConfig;//测试武器的配置文件
+    //武器实例缓存
+    [SerializeField]
+    private Gun gun;
 
     public static WeaponManager Instance
     {
@@ -34,39 +33,33 @@ public class WeaponManager : MonoBehaviour
 
         _instance = this;
         Initialize();
+
+        
     }
 
     //暂时保留初始化函数，根据后续初始化属性决定添加项
     private void Initialize()
     {
-        Weapon_code = 0;
-        if(Weapon_code < 0)
-        {
-            Debug.Log("Weapon code illegal!Please find a legal code");
-        }
-        ///测试代码
-        weapon_for_test.GetComponent<Gun>().Initialize(weaponConfig);
-
-        ///测试代码
+        gun = null;
+        if(gun == null) Debug.Log("Weapon null!");
     }
 
     //射击函数
     public void Shoot()
     {
-        Debug.Log("开火！");
-        weapon_for_test.GetComponent<Gun>().Shoot();
+        gun.Shoot();
     }
 
     public void Reload()
     {
-        weapon_for_test.GetComponent<Gun>().Reload();
+        gun.Reload();
     }
 
     public void ChangeSafty()
     {
-        weapon_for_test.GetComponent<Gun>().ChangeSafty();
+        gun.ChangeSafty();
     }
 
 
-
 }
+

@@ -4,6 +4,15 @@ using UnityEngine;
 
 abstract public class Gun : MonoBehaviour , IWeapon
 {
+    
+    //保险装置的列举
+    public enum Safty
+    {
+        SAFE,//保险关
+        SEMI,//半自动
+        AUTO,//全自动
+    }
+
     [Header("Gun Info")]
     protected WeaponConfig weaponConfig;//枪械配置
     protected GameObject prefab;//枪械预制体
